@@ -33,4 +33,12 @@ public class Body{
 	public double calcForceExertedBy(Body b){
 		return G * this.mass * b.mass / Math.pow(this.calcDistance(b), 2);
 	}
+
+	public double calcForceExertedByX(Body b){
+		return this.calcForceExertedBy(b) * (b.xxPos - this.xxPos)/this.calcDistance(b);
+	}
+
+	public double calcForceExertedByY(Body b){
+		return this.calcForceExertedBy(b) * (b.yyPos - this.yyPos)/this.calcDistance(b);
+	}
 }
