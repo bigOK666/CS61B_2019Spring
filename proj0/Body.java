@@ -24,5 +24,9 @@ public class Body{
 		mass = b.mass;
 		imgFileName = b.imgFileName;
 	}
+
+	public double calcDistance(Body b){
+		return Math.sqrt((Math.pow((b.xxPos - this.xxPos), 2) + Math.pow((b.yyPos - this.yyPos), 2)));
+	}
 	
 }
