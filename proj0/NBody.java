@@ -28,4 +28,10 @@ public class NBody{
 		}
 		return bodies;
 	}
+
+	public static void main(String[] args) {
+		double T = Double.parseDouble(System.in.read());
+		double dt = Double.parseDouble(System.in.read());
+		String filename = System.in.read();
+	}
 }
