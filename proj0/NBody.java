@@ -33,5 +33,7 @@ public class NBody{
 		double T = Double.parseDouble(System.in.read());
 		double dt = Double.parseDouble(System.in.read());
 		String filename = System.in.read();
+		double canvasR = NBody.readRadius(filename);
+		Body[] bodies = NBody.readBodies(filename);
 	}
 }
