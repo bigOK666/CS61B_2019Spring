@@ -33,11 +33,12 @@ public class NBody{
 
 	public static void main(String[] args) {
 		/** read everything from file */
-		double T = Double.parseDouble(System.in.read());
-		double dt = Double.parseDouble(System.in.read());
-		String filename = System.in.read();
+		double T = Double.parseDouble(args[0]);
+		double dt = Double.parseDouble(args[1]);
+		String filename = args[2];
 		double canvasR = NBody.readRadius(filename);
 		Body[] bodies = NBody.readBodies(filename);
+		String background = "images/starfield.jpg";
 
 		/** Enables double buffering.
 		  * A animation technique where all drawing takes place on the offscreen canvas.
@@ -45,6 +46,10 @@ public class NBody{
 		  * offscreen canvas to the onscreen canvas, where it is displayed
 		  * in the standard drawing window. */
 		StdDraw.enableDoubleBuffering();
+
+		StdDraw.setScale(-canvasR, canvasR);
+		StdDraw.picture(0, 0, background);
+		StdDraw.show();
 
 
 	}
