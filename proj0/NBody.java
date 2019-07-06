@@ -1,5 +1,6 @@
 public class NBody{
 	public static double readRadius(String fileName){
+		/** read Radius */
 		In in = new In(fileName);
 		int N = in.readInt();
 		double R = in.readDouble();
@@ -7,6 +8,7 @@ public class NBody{
 	}
 
 	public static Body[] readBodies(String fileName){
+		/** read bodies from file */
 		In in = new In(fileName);
 		int N = in.readInt();
 		double R = in.readDouble();
@@ -30,10 +32,20 @@ public class NBody{
 	}
 
 	public static void main(String[] args) {
+		/** read everything from file */
 		double T = Double.parseDouble(System.in.read());
 		double dt = Double.parseDouble(System.in.read());
 		String filename = System.in.read();
 		double canvasR = NBody.readRadius(filename);
 		Body[] bodies = NBody.readBodies(filename);
+
+		/** Enables double buffering.
+		  * A animation technique where all drawing takes place on the offscreen canvas.
+		  * Only when you call show() does your drawing get copied from the
+		  * offscreen canvas to the onscreen canvas, where it is displayed
+		  * in the standard drawing window. */
+		StdDraw.enableDoubleBuffering();
+
+
 	}
 }
