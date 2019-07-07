@@ -116,4 +116,4 @@ public int methodName (...) {
 
 ## Chapter 2 Lists 列表
 
-开始这节之前要先把**Project0**做完！！
+开始这节之前要先把**Project0**做完！！附送完成链接:[项目0: 宇宙](https://github.com/zerenlu/CS61B_2019Spring/tree/master/proj0)
