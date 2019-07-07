@@ -57,16 +57,25 @@ public class NBody{
 
 		/** loop until time reaches T */
 		double tick = 0.0;
-		int bodyNr = bodies.length();
+		int bodyNr = bodies.length;
 		while(tick < T){
 			/** calculate net forces */
 			double[] xForces = new double[bodyNr];
 			double[] yForces = new double[bodyNr];
 
 			for(int i = 0; i < bodyNr; i++){
-				
+				xForces[i] = bodies[i].calcNetForceExertedByX(bodies);
+				yForces[i] = bodies[i].calcNetForceExertedByY(bodies);
+				bodies[i].update(dt, xForces[i], yForces[i]);
 			}
-
+			/** draw background*/
+			StdDraw.picture(0, 0, background);
+			for(Body b : bodies){
+			b.draw();
+			}
+			StdDraw.show();
+			StdDraw.pause(10);
+			tick = dt + tick;
 		}
 
 
