@@ -54,12 +54,12 @@ public class NBody{
 			b.draw();
 		}
 		StdDraw.show();
-
+		/** play audio*/
+		StdAudio.play("audio/2001.mid");
 		/** loop until time reaches T */
 		double tick = 0.0;
 		int bodyNr = bodies.length;
-		/** play audio*/
-		StdAudio.play("audio/2001.mid");
+
 		while(tick < T){
 			/** calculate net forces */
 			double[] xForces = new double[bodyNr];
