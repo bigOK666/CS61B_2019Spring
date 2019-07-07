@@ -46,10 +46,28 @@ public class NBody{
 		  * offscreen canvas to the onscreen canvas, where it is displayed
 		  * in the standard drawing window. */
 		StdDraw.enableDoubleBuffering();
-
+		/** draw background */
 		StdDraw.setScale(-canvasR, canvasR);
 		StdDraw.picture(0, 0, background);
+		/** draw bodies */
+		for(Body b : bodies){
+			b.draw();
+		}
 		StdDraw.show();
+
+		/** loop until time reaches T */
+		double tick = 0.0;
+		int bodyNr = bodies.length();
+		while(tick < T){
+			/** calculate net forces */
+			double[] xForces = new double[bodyNr];
+			double[] yForces = new double[bodyNr];
+
+			for(int i = 0; i < bodyNr; i++){
+				
+			}
+
+		}
 
 
 	}

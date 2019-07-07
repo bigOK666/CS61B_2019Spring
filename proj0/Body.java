@@ -74,7 +74,7 @@ public class Body{
 	}
 
 	public void draw(){
-		StdDraw.picture(this.xxPos, this.yyPos, imgFileName);
-		StdDraw.show();
+		StdDraw.picture(this.xxPos, this.yyPos, "images/" + imgFileName);
+		//StdDraw.show();
 	}
 }
