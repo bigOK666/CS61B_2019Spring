@@ -77,7 +77,11 @@ public class NBody{
 			StdDraw.pause(10);
 			tick = dt + tick;
 		}
-
+		StdOut.printf("%d\n", bodyNr);
+		StdOut.printf("%.2e\n", canvasR);
+		for(int j = 0; j < bodyNr; j++){
+			StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n", bodies[j].xxPos, bodies[j].yyPos, bodies[j].xxVel, bodies[j].yyVel, bodies[j].mass, bodies[j].imgFileName);
+		}
 
 	}
 }
