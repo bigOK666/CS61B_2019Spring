@@ -68,7 +68,7 @@ public class NBody{
 				yForces[i] = bodies[i].calcNetForceExertedByY(bodies);
 				bodies[i].update(dt, xForces[i], yForces[i]);
 			}
-			/** draw background*/
+			/** draw background and bodies*/
 			StdDraw.picture(0, 0, background);
 			for(Body b : bodies){
 			b.draw();

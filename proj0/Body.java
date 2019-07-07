@@ -1,4 +1,5 @@
 public class Body{
+	/** position, velocity, mass and pics*/
 	public double xxPos;
 	public double yyPos;
 	public double xxVel;
