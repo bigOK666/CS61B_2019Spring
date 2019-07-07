@@ -117,3 +117,9 @@ public int methodName (...) {
 ## Chapter 2 Lists 列表
 
 开始这节之前要先把**Project0**做完！！附送完成链接:[项目0: 宇宙](https://github.com/zerenlu/CS61B_2019Spring/tree/master/proj0)
+
+Array 数组在java中是固定长度/大小，一旦定义后就不能再改变其容量。 为了使数组这种数据结构更加灵活的被使用，列表List被创造了出来，这也是这一章的主要目的所在。 在讲如何构建列表之前，首先要弄清楚赋值这个概念，即`=`。
+
+赋值的概念很直接，就是将变量储存的值赋值给另外一个值，这也被称为“赋值黄金法则”。 但赋值类型决定了赋值的影响不同。 Java中有8个主要类型，byte, short, int, long, float, double, boolean, char。 所有除了这8个类型以外的类型，被称为reference type参考类型。
+
+
