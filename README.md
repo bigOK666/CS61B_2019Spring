@@ -148,3 +148,7 @@ System.out.println(a);
 System.out.println(b);
 ```
  * 如果在声明参考类型变量的时候并没有实例化，那么声明的变量里储存的地址为`null`，即全是0。
+
+ ### 传递参数
+
+ 
