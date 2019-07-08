@@ -221,3 +221,18 @@ public int iterativeSize() {
 }
 ```
 不管是递归方法还是迭代方法，都要找到增值的条件，然后基于这个条件来数数！
+
+#### 列表method之二获取列表的元素get()
+
+```
+public int get(int i) {
+	IntList p = this;
+	int count = 0;
+	while(count != i){
+		p = p.rest;
+		count++;
+
+	}
+	return p.first;
+}
+```
