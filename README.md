@@ -167,3 +167,34 @@ public static void main(String[] args) {
 ### 数组的实例化
 
 之前已经提到过如何初始化一个数组`int[] a = new int[]{1, 2, 3, 4};`, 这里面a储存了数组这个对象的地址，需要注意的一点是，如果a这时被赋值为其他数组的地址，而之前的数组地址并没有进行备份的话，之前的数组对象就没有踪迹可寻了，虽然它还在那里T_T。
+
+### 自创列表IntLists
+
+直接上代码吧:
+```
+public class IntList {
+    public int first;
+    public IntList rest;        
+
+    public IntList(int f, IntList r) {
+        first = f;
+        rest = r;
+    }
+}
+```
+使用方法：
+
+```
+IntList L = new IntList(5, null);
+L.rest = new IntList(10, null);
+L.rest.rest = new IntList(15, null);
+```
+或者
+```
+IntList L = new IntList(15, null);
+L = new IntList(10, L);
+L = new IntList(5, L);
+```
+第二种方法和第一种方法是等效的，仔细想想很有意思233。
+
+
