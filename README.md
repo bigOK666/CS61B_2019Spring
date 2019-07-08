@@ -197,4 +197,27 @@ L = new IntList(5, L);
 ```
 第二种方法和第一种方法是等效的，仔细想想很有意思233。
 
+#### 列表method之一：获取列表大小
 
+递归方法:
+```
+public int size() {
+    if (rest == null) {
+        return 1;
+    }
+    return 1 + this.rest.size();
+}
+```
+迭代方法：
+```
+public int iterativeSize() {
+    IntList p = this;
+    int totalSize = 0;
+    while (p != null) {
+        totalSize += 1;
+        p = p.rest;
+    }
+    return totalSize;
+}
+```
+不管是递归方法还是迭代方法，都要找到增值的条件，然后基于这个条件来数数！
