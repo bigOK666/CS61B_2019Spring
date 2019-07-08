@@ -151,4 +151,19 @@ System.out.println(b);
 
  ### 传递参数
 
+函数的参数的赋值也遵循黄金法则，栗如: 
+```
+public static double average(double a, double b) {
+    return (a + b) / 2;
+}
+public static void main(String[] args) {
+    double x = 5.5;
+    double y = 10.5;
+    double avg = average(x, y);
+}
+```
+在调用`average`函数时，函数需要两个`double`参数，x 和 y的值会被复制到形参局部变量a和b中。
 
+### 数组的实例化
+
+之前已经提到过如何初始化一个数组`int[] a = new int[]{1, 2, 3, 4};`, 这里面a储存了数组这个对象的地址，需要注意的一点是，如果a这时被赋值为其他数组的地址，而之前的数组地址并没有进行备份的话，之前的数组对象就没有踪迹可寻了，虽然它还在那里T_T。
