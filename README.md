@@ -236,3 +236,5 @@ public int get(int i) {
 	return p.first;
 }
 ```
+
+下面就要开始用IntelliJ啦，IDE！！！！
