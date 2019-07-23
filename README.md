@@ -241,6 +241,17 @@ public int get(int i) {
 
 ### SLList
 
-由于上一节造的IntList是基于递归算法，不懂递归的话会不明所以，不利于用户使用，因此这一节要创造一个新的列表结构。
+由于上一节造的IntList是基于递归算法，不懂递归的话会不明所以，不利于用户使用，因此这一节要创造一个新的列表结构叫做SLList。
 
-11.07 生病了。。。
+#### 性能提高：
+
+在初始化时，上一节不仅要提供第一个值，还要提供链接剩下列表的地址`new IntNode(x, null)`，这样很不方便，于是在上一节的类的基础上，我们使用另外一个类来优化初始化，即不输入链接剩下列表的地址`null`进行初始化`SLList L = new SLList(5);`。 通过构造函数即可：
+```
+public class SLList {
+    public IntNode first;
+
+    public SLList(int x) {
+        first = new IntNode(x, null);
+    }
+}
+```
