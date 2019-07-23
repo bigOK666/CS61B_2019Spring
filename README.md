@@ -255,3 +255,29 @@ public class SLList {
     }
 }
 ```
+其中IntNode遇上一节中的类结构一样。
+```
+public class IntNode {
+    public int item;
+    public IntNode next;
+
+    public IntNode(int i, IntNode n) {
+        item = i;
+        next = n;
+    }
+}
+```
+如果需要向List中添加成员，我们可以用简化的`addFirst`：
+```
+    /** Adds an item to the front of the list. */
+    public void addFirst(int x) {
+        first = new IntNode(x, first);
+    }
+```
+如果需要获得第一个成员的值，则可以用`getFirst`:
+```
+/** Retrieves the front item from the list. */
+public int getFirst() {
+    return first.item;
+}
+```
