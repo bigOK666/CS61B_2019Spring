@@ -281,3 +281,5 @@ public int getFirst() {
     return first.item;
 }
 ```
+
+为什么没用`this`关键字?这是一个非常值得思考的问题。
