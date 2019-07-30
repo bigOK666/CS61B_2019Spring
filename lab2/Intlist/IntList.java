@@ -105,7 +105,11 @@ public class IntList {
 
 
 
-
+    public IntList addFirst(int a){
+        IntList first_element = new IntList(a, null);
+        first_element.rest = this;
+        return first_element;
+    }
 
 
 

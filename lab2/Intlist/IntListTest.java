@@ -73,4 +73,13 @@ public class IntListTest {
         assertEquals(IntList.of(1, 2, 3), A);
     }
 
+    @Test
+    public void testAddFirst() {
+        IntList A = IntList.of(1, 2, 3);
+        IntList exp = IntList.of(0, 1, 2, 3);
+        IntList B = A.addFirst(0);
+        assertEquals(exp, B);
+
+    }
+
 }
