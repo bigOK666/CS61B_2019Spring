@@ -285,3 +285,7 @@ public int getFirst() {
 为什么没用`this`关键字?这是一个非常值得思考的问题。
 
 **因为this关键字是局部变量，而这里需要一个全局变量first**
+
+##### Public vs. Private
+
+private关键字主要是为了变量不被外部调用影响，从而达到信息安全的目的，因为private变量与方法只能被同一java文件的代码访问。
