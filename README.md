@@ -289,3 +289,11 @@ public int getFirst() {
 ##### Public vs. Private
 
 private关键字主要是为了变量不被外部调用影响，从而达到信息安全的目的，因为private变量与方法只能被同一java文件的代码访问。
+
+于是为了避免列表内容被修改，我们需要声明first为私有变量，即：
+```
+public class SLList {
+    private IntNode first;
+...
+```
+
