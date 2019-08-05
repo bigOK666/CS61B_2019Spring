@@ -297,3 +297,28 @@ public class SLList {
 ...
 ```
 
+##### 嵌入类
+
+嵌入类指的是在一个已经声明的类内部继续声明一个类，当一个类仅仅被用来当做工具的时候，嵌入类可以节省java文件的个数并保持代码的整洁。
+
+```
+public class SLList {
+       public class IntNode {
+            public int item;
+            public IntNode next;
+            public IntNode(int i, IntNode n) {
+                item = i;
+                next = n;
+            }
+       }
+
+       private IntNode first; 
+
+       public SLList(int x) {
+           first = new IntNode(x, null);
+       } 
+...
+```
+
+**如果嵌入的类并不会用到任何父类的变量或方法，就可以将这个嵌入类声明为静态类**
+
