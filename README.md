@@ -322,3 +322,36 @@ public class SLList {
 
 **如果嵌入的类并不会用到任何父类的变量或方法，就可以将这个嵌入类声明为静态类**
 
+##### 新方法 获取List的容量以及将新元素添加到最后一位
+添加元素到最后一位：
+```
+/** Adds an item to the end of the list. */
+public void addLast(int x) {
+    IntNode p = first;
+
+    /* Advance p to the end of the list. */
+    while (p.next != null) {
+        p = p.next;
+    }
+    p.next = new IntNode(x, null);
+}
+```
+计算列表内元素个数：
+```
+private static int size(IntNode p) {
+    if (p.next == null) {
+        return 1;
+    }
+
+    return 1 + size(p.next);
+}
+```
+通过这个方法，我们可以再声明一个同名方法但不需要输入形参，以此来获得整个列表的个数：
+
+```
+public int size() {
+    return size(first);
+}
+```
+
+这种声明同名的方法但形参不一样的用法叫做**过载overloaded**
