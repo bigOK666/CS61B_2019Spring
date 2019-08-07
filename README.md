@@ -355,3 +355,30 @@ public int size() {
 ```
 
 这种声明同名的方法但形参不一样的用法叫做**过载overloaded**
+
+##### size改进
+
+上一小节提到的size方法需要运行时间，如果要获取一个容量为1000的列表的容量的话，相当于size方法要运行1000次，这非常耗时间，于是这里引入一个新的概念叫做缓存caching, 我们在SLList中引入一个新的全局变量size:
+```
+public class SLList {
+    ... /* IntNode declaration omitted. */
+    private IntNode first;
+    private int size;
+
+    public SLList(int x) {
+        first = new IntNode(x, null);
+        size = 1;
+    }
+
+    public void addFirst(int x) {
+        first = new IntNode(x, first);
+        size += 1;
+    }
+
+    public int size() {
+        return size;
+    }
+    ...
+}
+```
+每当向列表中添加新元素的时候，size变量就会自加一，于是只要能够读出这个
