@@ -399,3 +399,4 @@ public SLList() {
 这里提到的这种办法是创建sentinel nodes,就是说在创建列表的初期就已经有一个基础节点了。
 
 ### 2.3 DLList
+01.10续更
