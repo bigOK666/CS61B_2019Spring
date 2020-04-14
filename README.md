@@ -222,6 +222,10 @@ public int iterativeSize() {
 ```
 不管是递归方法还是迭代方法，都要找到增值的条件，然后基于这个条件来数数！
 
+知识点:
+ * size() 中 `rest == null` 等效于 `this.rest == null` 因为size方法是在实例中调用的，即L.size()，也就是说实例已经有了rest参数，因此可以直接用。
+ * this不能重新赋值给变量，因此用p（pointer)储存this
+
 #### 列表method之二获取列表的元素get()
 
 ```
