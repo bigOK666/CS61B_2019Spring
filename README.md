@@ -404,4 +404,35 @@ public SLList() {
 这里提到的这种办法是创建sentinel nodes,就是说在创建列表的初期就已经有一个基础节点了。
 
 ### 2.3 DLList
-01.10续更
+到这节才揭晓，SLList是single linked list就是元素间节点全是单向的，DLList顾名思义就是双向节点。双向节点会储存前一节点的储存地址，就像以前一个节点会储存下一节点的地址一样，双向节点储存了前一节点和下一节点的地址，好处就是在处理最后节点的添加与删除的时候，消耗的时间是固定的。
+
+这一节的一个思维模式很重要，就是尽量不要在代码中对特殊情况进行处理，而是要构建一个数据结构来满足所有的情况。
+
+#### 泛型
+
+泛型使得程序可以在实例化时再指定类中的某些变量为哪种类型，这样在写程序时就不必对于形参进行特别声明了。
+
+
+```
+public class DLList<BleepBlorp> { //泛型声明与类声明在同一行
+    private IntNode sentinel;
+    private int size;
+
+    public class IntNode {
+        public IntNode prev;
+        public BleepBlorp item; //使用泛型来声明变量
+        public IntNode next;
+        ...
+    }
+    ...
+}
+```
+
+<BleepBlorp>即为泛型，实例化时的应用方式为：
+```
+DLList<String> d2 = new DLList<>("hello");
+```
+
+初始化时可以省略类型(<>)，因为声明变量时已经声明元素类型了。元素类型关键字: *Integer*, *Double*, *Character*, *Boolean*, *Long*, *Short*, *Byte*, *Float*.
+
+关于DLList, 将在Project1中构建:
