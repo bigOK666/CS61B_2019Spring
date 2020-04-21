@@ -100,9 +100,19 @@ public class LinkedListDeque<T> {
             return p.item;
         }
     }
-
+    /*copy the entire list object one by one.
+    * source @https://www.youtube.com/watch?v=JNroRiEG7U4
+    *
+    * */
     public LinkedListDeque(LinkedListDeque other){
+        sentinel = new Node(null, null,null);
+        sentinel.pre = sentinel;
+        sentinel.next = sentinel;
+        size = 0;
 
+        for(int i = 0; i < other.size; i++){
+            addLast((T)other.get(i));
+        }
 
     }
     /*return the item based on index*/
