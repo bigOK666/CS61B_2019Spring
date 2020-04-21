@@ -74,6 +74,19 @@ public class LinkedListDeque<T> {
 
     }
 
+    /*remove last element*/
+    public T removeLast(){
+        if(size != 0){
+            T v = sentinel.pre.item;
+            sentinel.pre.pre.next = sentinel;
+            sentinel.pre = sentinel.pre.pre;
+            size -= 1;
+            return v;
+        }else{
+            return null;
+        }
+    }
+
     public LinkedListDeque(LinkedListDeque other){
 
 
@@ -84,6 +97,7 @@ public class LinkedListDeque<T> {
         test.addFirst(20);
         test.addLast(30);
 //        test.printDeque();
-        test.removeFirst();
+//        test.removeFirst();
+        test.removeLast();
     }
 }
