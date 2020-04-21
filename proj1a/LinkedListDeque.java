@@ -35,6 +35,13 @@ public class LinkedListDeque<T> {
         size += 1;
     }
 
+    public void addLast(T item){
+        Node node = new Node(item, sentinel.pre,sentinel);
+        sentinel.pre.next = node;
+        sentinel.pre = node;
+        size += 1;
+    }
+
     public LinkedListDeque(LinkedListDeque other){
 
     }
@@ -42,5 +49,6 @@ public class LinkedListDeque<T> {
     public static void main(String[] args) {
         LinkedListDeque<Integer> test = new LinkedListDeque<>(10);
         test.addFirst(20);
+        test.addLast(30);
     }
 }
