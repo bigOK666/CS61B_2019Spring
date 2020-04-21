@@ -435,4 +435,4 @@ DLList<String> d2 = new DLList<>("hello");
 
 初始化时可以省略类型(<>)，因为声明变量时已经声明元素类型了。元素类型关键字: *Integer*, *Double*, *Character*, *Boolean*, *Long*, *Short*, *Byte*, *Float*.
 
-关于DLList, 将在Project1中构建:
+关于DLList, 将在Project1a中构建: [Project 1a](https://github.com/zerenlu/CS61B_2019Spring/tree/master/proj1a)
