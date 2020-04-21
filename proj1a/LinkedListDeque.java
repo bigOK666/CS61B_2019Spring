@@ -34,13 +34,19 @@ public class LinkedListDeque<T> {
         sentinel.next = node;
         size += 1;
     }
-
+    /*Add element to last position*/
     public void addLast(T item){
         Node node = new Node(item, sentinel.pre,sentinel);
         sentinel.pre.next = node;
         sentinel.pre = node;
         size += 1;
     }
+    /*check if list is empty*/
+    public boolean isEmpty(){
+        return size == 0;
+    }
+
+    
 
     public LinkedListDeque(LinkedListDeque other){
 
