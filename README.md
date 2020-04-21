@@ -436,3 +436,10 @@ DLList<String> d2 = new DLList<>("hello");
 初始化时可以省略类型(<>)，因为声明变量时已经声明元素类型了。元素类型关键字: *Integer*, *Double*, *Character*, *Boolean*, *Long*, *Short*, *Byte*, *Float*.
 
 关于DLList, 将在Project1a中构建: [Project 1a](https://github.com/zerenlu/CS61B_2019Spring/tree/master/proj1a)
+
+### 2.4 Array 数组
+
+数组，顾名思义就是存放一组数的一种数据结构，它的特点如下：
+ - 以数列序号形式存放数据 e.g. A[i]
+ - 长度固定，长度为N，则需要N个存储空间来储存数据，在同一数组中储存的数据类型必须相同
+ - 不包含方法Methods
