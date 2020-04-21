@@ -20,7 +20,7 @@ public class LinkedListDeque<T> {
     }
     /* initial with one element*/
     public LinkedListDeque(T x){
-        sentinel = new Node(x, null, null);
+        sentinel = new Node(null, null, null);
 
         sentinel.next = new Node(x, sentinel, sentinel);
         sentinel.pre = sentinel.next;
@@ -45,10 +45,25 @@ public class LinkedListDeque<T> {
     public boolean isEmpty(){
         return size == 0;
     }
+    /*Return the number of elements in the list*/
+    public int size(){
+        return size;
+    }
 
-    
+    /*print all the elements*/
+    public void printDeque(){
+        Node p = sentinel.next;
+        while(p.item != null){
+            System.out.print(p.item + " ");
+            p = p.next;
+        }
+        System.out.println(" ");
+    }
+
+
 
     public LinkedListDeque(LinkedListDeque other){
+
 
     }
 
@@ -56,5 +71,6 @@ public class LinkedListDeque<T> {
         LinkedListDeque<Integer> test = new LinkedListDeque<>(10);
         test.addFirst(20);
         test.addLast(30);
+        test.printDeque();
     }
 }
