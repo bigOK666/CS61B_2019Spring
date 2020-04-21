@@ -88,7 +88,7 @@ public class LinkedListDeque<T> {
     }
     /*return the element at given index*/
     public T get(int index){
-        if(index > size - 1){
+        if(index > size - 1 || index < 0 ){
             return null;
         }else{
             int counter = 0;
@@ -105,6 +105,23 @@ public class LinkedListDeque<T> {
 
 
     }
+    /*return the item based on index*/
+    public T getRecursive(int index){
+        if (index > size - 1 || index < 0){
+            return null;
+        }else{
+            return getRecursiveHelper(sentinel.next, index);
+        }
+    }
+
+    /*help function to get item based on index*/
+    private T getRecursiveHelper(Node n, int i){
+        if(i == 0){
+            return n.item;
+        }else{
+            return getRecursiveHelper(n.next, i - 1);
+        }
+    }
 
     public static void main(String[] args) {
         LinkedListDeque<Integer> test = new LinkedListDeque<>(10);
@@ -113,6 +130,6 @@ public class LinkedListDeque<T> {
 //        test.printDeque();
 //        test.removeFirst();
         test.removeLast();
-        System.out.print(test.get(0));
+        System.out.print(test.getRecursive(-1));
     }
 }
