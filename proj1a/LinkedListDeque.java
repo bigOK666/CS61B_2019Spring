@@ -86,6 +86,20 @@ public class LinkedListDeque<T> {
             return null;
         }
     }
+    /*return the element at given index*/
+    public T get(int index){
+        if(index > size - 1){
+            return null;
+        }else{
+            int counter = 0;
+            Node p = sentinel.next;
+            while(counter != index){
+                p = p.next;
+                counter += 1;
+            }
+            return p.item;
+        }
+    }
 
     public LinkedListDeque(LinkedListDeque other){
 
@@ -99,5 +113,6 @@ public class LinkedListDeque<T> {
 //        test.printDeque();
 //        test.removeFirst();
         test.removeLast();
+        System.out.print(test.get(0));
     }
 }
