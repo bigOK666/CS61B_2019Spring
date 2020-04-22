@@ -456,7 +456,36 @@ DLList<String> d2 = new DLList<>("hello");
 
  数组的拷贝需要用到系统函数`System.arraycopy(b, 0, x, 3, 2);`,原因是这样滴, 由于数组变量存储的是地址，因此如果这样:
  ```
+ int[] x, y;
  x = new int[]{1, 2, 3, 4};
  y = x;
  ```
  那么y中将存储与x一样的地址，y和x指向同一个数组，并不是对数组进行了复制。 系统函数用法: `System.arraycopy(b, 0, x, 3, 2);` 将b数组中的第*0*位开始的*2*个数复制到x数组中从第*3*位开始的数中。
+
+#### 2D数组
+创建二维数组的方式与创建一维数组的方式很像:
+```
+int[][] matrix;
+matrix = new int[4][];//创建一个一维数组，每项初始化为null
+matrix = new int[4][4];//创建五个一维数组，第一组存储的是剩下四组的地址，剩下四组初始值为0
+
+int[][] pascalAgain = new int[][]{{1}, {1, 1},
+                                 {1, 2, 1}, {1, 3, 3, 1}};
+```
+
+二维数组简单来说就是多存储一个参考地址，a reference of a reference。 `matrix` 是个地址，`matrix[0]`存储的也是个地址，`matrix[0][0]`存储的才是值。
+
+#### 数组与类的区别
+二者最大的区别是数组可以在运行时指定元素的序列，但类不行:
+```
+int indexOfInterest = askUserForInteger();
+int[] x = {100, 101, 102, 103};
+int k = x[indexOfInterest];//从用户获得指定序列，没有问题
+System.out.println(k);
+```
+
+```
+String fieldOfInterest = "mass";
+Planet p = new Planet(6e24, "earth");
+double mass = p.fieldOfInterest;//编译器并不认识实例p中的fieldOfInterest成员，因此报错
+```
