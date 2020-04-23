@@ -14,6 +14,9 @@ public class ArrayDeque<T> {
         for (int i = 0; i < other.items.length; i++) {
             items[i] = (T) other.items[i];
         }
+        size = other.size();
+        nextFirst = other.nextFirst();
+        nextLast = other.nextLast();
     }
 
     /*resize the array*/
@@ -60,6 +63,13 @@ public class ArrayDeque<T> {
         return size;
     }
 
+    public int nextFirst() {
+        return nextFirst;
+    }
+
+    public int nextLast() {
+        return nextLast;
+    }
     /*show the item in the array list*/
     public void printDeque() {
         int L = items.length;
@@ -136,6 +146,10 @@ public class ArrayDeque<T> {
         System.out.print(test.get(2));
 
         ArrayDeque<Integer> test2 = new ArrayDeque<>(test);
+        test2.removeLast();
+        test2.removeFirst();
+        test2.removeLast();
+        test2.addFirst(0);
 
     }
 }
