@@ -36,4 +36,27 @@ public class ArrayDeque<T> {
     public boolean isEmpty() {
         return size == 0;
     }
+
+    /*show the size of the arraylist*/
+    public int size() {
+        return size;
+    }
+
+    /*show the item in the array list*/
+    public void printDeque() {
+        int firstIndex = nextFirst + 1;
+        int L = items.length;
+        for(int i = 0; i < size; i++) {
+            System.out.print(items[(i + firstIndex) % L] + " ");
+        }
+        System.out.println(" ");
+    }
+
+    public static void main(String[] args) {
+        ArrayDeque<Integer> test= new ArrayDeque<>();
+        test.addFirst(1);
+        test.addLast(2);
+        test.printDeque();
+
+    }
 }
