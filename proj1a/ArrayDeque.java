@@ -4,7 +4,7 @@ public class ArrayDeque<T> {
 
     public ArrayDeque() {
         size = 0;
-        nextFirst = 0;
+        nextFirst = 7;
         nextLast = 0;
         items = (T []) new Object[8];
     }
@@ -22,6 +22,13 @@ public class ArrayDeque<T> {
     public void addLast(T item) {
         items[nextLast] = item;
         nextLast++;
+        size++;
+    }
+
+    /*add item to the first*/
+    public void addFirst(T item) {
+        items[nextFirst] = item;
+        nextFirst--;
         size++;
     }
 }
