@@ -2,6 +2,7 @@ public class ArrayDeque<T> {
     private int size, nextFirst, nextLast;
     private T[] items;
 
+
     public ArrayDeque() {
         size = 0;
         nextFirst = 7;
@@ -44,18 +45,33 @@ public class ArrayDeque<T> {
 
     /*show the item in the array list*/
     public void printDeque() {
-        int firstIndex = nextFirst + 1;
         int L = items.length;
+        int firstIndex = (nextFirst + 1) % 8;
         for(int i = 0; i < size; i++) {
             System.out.print(items[(i + firstIndex) % L] + " ");
         }
         System.out.println(" ");
     }
 
+    /*remove the first element*/
+    public T removeFirst() {
+        T x = items[(nextFirst + 1) % 8];
+        items[(nextFirst + 1) % 8] = null;
+        nextFirst++;
+        size--;
+        return x;
+    }
+    
+
+
     public static void main(String[] args) {
         ArrayDeque<Integer> test= new ArrayDeque<>();
         test.addFirst(1);
         test.addLast(2);
+        test.addFirst(0);
+        test.addLast(3);
+        test.printDeque();
+        test.removeFirst();
         test.printDeque();
 
     }
