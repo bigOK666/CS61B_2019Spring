@@ -569,3 +569,10 @@ size = size + 1;
 
 关于AList, 将在Project1a中构建: [Project 1a](https://github.com/zerenlu/CS61B_2019Spring/tree/master/proj1a).
 
+## Chapter 3 测试
+
+这一章会传授测试的方法！测试是检查错误的优秀方式。
+
+### 3.1 测试的新方式
+
+学会使用JUnit库来测试，这样就能省去很多输出字符串的代码啦！
