@@ -566,3 +566,6 @@ size = size + 1;
 在Java中，泛型数组是不存在的，因此有一种类似于泛型数组的方法: `Glorp[] items = (Glorp []) new Object[8];`
 
 前面提到在删除元素时没必要将其置零，但如果数组存储的是地址的话，将其置为null，则原来地址所存储的数据就会被删除，因为已经这个地址已经不被其他数据所用了。
+
+关于AList, 将在Project1a中构建: [Project 1a](https://github.com/zerenlu/CS61B_2019Spring/tree/master/proj1a).
+
