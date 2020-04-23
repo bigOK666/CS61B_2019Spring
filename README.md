@@ -489,3 +489,80 @@ String fieldOfInterest = "mass";
 Planet p = new Planet(6e24, "earth");
 double mass = p.fieldOfInterest;//编译器并不认识实例p中的fieldOfInterest成员，因此报错
 ```
+
+### 2.5 ArrayList AList
+
+与DLList相比，AList的优势在于根据坐标获得某一项的值时，消耗的时间更短。 DLList需要遍历整个List直到到达对应的坐标，而AList则只需要A[i]就行了。 A[i]的运行时间是个固定值，原因在于Array的存储是连续的一系列地址，因此在知道A的地址的情况下，第i个元素的地址就是A的地址加上i。
+
+```
+/** Array based list.
+ *  @author Josh Hug
+ */
+
+//         0 1  2 3 4 5 6 7
+// items: [6 9 -1 2 0 0 0 0 ...]
+// size: 5
+
+/* Invariants:找到的规律
+ addLast: The next item we want to add, will go into position size 在末尾添加元素之后，下次添加的位置与size值相同
+ getLast: The item we want to return is in position size - 1
+ size: The number of items in the list should be size.
+*/
+
+public class AList {
+    private int[] items;
+    private int size;
+
+    /** Creates an empty list. */
+    public AList() {
+        items = new int[100];
+        size = 0;
+    }
+
+    /** Inserts X into the back of the list. */
+    public void addLast(int x) {
+        items[size] = x;
+        size = size + 1;
+    }
+
+    /** Returns the item from the back of the list. */
+    public int getLast() {
+        return items[size - 1];
+    }
+    /** Gets the ith item in the list (0 is the front). */
+    public int get(int i) {
+        return items[i];
+    }
+
+    /** Returns the number of items in the list. */
+    public int size() {
+        return size;
+    }
+
+    /** Deletes item from back of the list and
+      * returns deleted item. */
+    public int removeLast() {
+        int x = getLast();
+        size = size - 1;//没必要将最后一项设为0，因为size已经不包括最后一项了。
+        return x;
+    }
+}
+```
+
+#### 扩大Array
+如果数组被填满了，那么就要扩大它:
+```
+int[] a = new int[size + 1];
+System.arraycopy(items, 0, a, 0, size);
+a[size] = 11;
+items = a;
+size = size + 1;
+``` 
+
+上面代码每次只扩大一个，如果要添加很多次(1000)的话，会很慢，因此用乘法:[size * 2]。
+
+在扩建了之后，如果又删除了大量的元素，可以根据使用率size/length来缩小数组，这样就不会造成空间的浪费了。
+
+在Java中，泛型数组是不存在的，因此有一种类似于泛型数组的方法: `Glorp[] items = (Glorp []) new Object[8];`
+
+前面提到在删除元素时没必要将其置零，但如果数组存储的是地址的话，将其置为null，则原来地址所存储的数据就会被删除，因为已经这个地址已经不被其他数据所用了。
