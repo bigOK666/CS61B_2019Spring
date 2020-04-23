@@ -31,4 +31,9 @@ public class ArrayDeque<T> {
         nextFirst--;
         size++;
     }
+
+    /*check if array is empty*/
+    public boolean isEmpty() {
+        return size == 0;
+    }
 }
