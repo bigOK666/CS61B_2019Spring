@@ -55,13 +55,29 @@ public class ArrayDeque<T> {
 
     /*remove the first element*/
     public T removeFirst() {
-        T x = items[(nextFirst + 1) % 8];
-        items[(nextFirst + 1) % 8] = null;
-        nextFirst++;
-        size--;
-        return x;
+        if (isEmpty()) {
+            return null;
+        } else {
+            T x = items[(nextFirst + 1) % 8];
+            items[(nextFirst + 1) % 8] = null;
+            nextFirst++;
+            size--;
+            return x;
+        }
     }
-    
+
+    /*remove the last element*/
+    public T removeLast() {
+        if (isEmpty()) {
+            return null;
+        } else {
+            T x = items[nextLast - 1];
+            items[nextLast - 1] = null;
+            nextLast--;
+            size--;
+            return x;
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -72,6 +88,8 @@ public class ArrayDeque<T> {
         test.addLast(3);
         test.printDeque();
         test.removeFirst();
+        test.printDeque();
+        test.removeLast();
         test.printDeque();
 
     }
