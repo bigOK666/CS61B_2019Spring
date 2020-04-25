@@ -591,3 +591,28 @@ import org.junit.Assert.*
 为了不用为了单一测试而将某些测试注释掉，可以在每个测试的方法加上`@org.junit.Test`，这样InteliJ就会自动识别并编译这些测试了，因此也不再需要main函数了。
 
 Test Driven Development以测试为优先前提的开发模式会先把测试写好，然后测试代码直到通过为止，测试有Unit test和Integration test，单元测试只测单一的函数，集成测试测试整个系统。
+
+## Chapter 4 继承
+
+前面提到过Java中的过载属性，过载属性有可能会导致代码的重复，那么解决这一问题的方法就是使用继承。
+
+### Hypernyms上位, Hyponyms下位, 以及 Interface Inheritance 接口继承
+
+上下位其实就是类别的从属关系。 上下位的关系可以通过"是"来表达： 牧羊犬**是**狗。 狗就是Hypernym, 牧羊犬就是Hyponym。
+
+在Java中描述这种上下关系就需要用到关键词`interface`和`implements`。
+定义一个上位词List61B，使用interface。
+```
+public interface List61B<Item> {
+    //这里面描述List可以做的事情，而不是如何做事情。
+    public void addFirst(Item x);
+    public void addLast(Item y);
+    ...
+}
+```
+在声明List61B的下位词AList时使用implements:
+```
+public class AList<Item> implements List61B<Item> {...}
+```
+
+AList的这种声明就意味着它在宣称List61B中有的函数，AList这边也一样全都有。
