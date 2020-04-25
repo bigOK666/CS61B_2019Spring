@@ -576,3 +576,18 @@ size = size + 1;
 ### 3.1 测试的新方式
 
 学会使用JUnit库来测试，这样就能省去很多输出字符串的代码啦！
+```
+org.junit.Assert.assertEquals(expected, actual);//比较两个参数是否相同，两个参数可以为数组。
+```
+
+测试有个很大的好处就是能够帮助人在重构代码的时候更方便地保证程序的功能不变，重构指的就是在保证代码功能不变的情况下使得代码更简洁或更高效或blablabla。
+
+每次调用比较函数都要先在前面写一长串`org.junit.Assert.`很麻烦，为了简便可以在最前面写上
+```
+import org.junit.Assert.*
+```
+这样就只用写`assertEquals`就可以了。
+
+为了不用为了单一测试而将某些测试注释掉，可以在每个测试的方法加上`@org.junit.Test`，这样InteliJ就会自动识别并编译这些测试了，因此也不再需要main函数了。
+
+Test Driven Development以测试为优先前提的开发模式会先把测试写好，然后测试代码直到通过为止，测试有Unit test和Integration test，单元测试只测单一的函数，集成测试测试整个系统。
