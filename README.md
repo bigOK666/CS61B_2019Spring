@@ -616,3 +616,12 @@ public class AList<Item> implements List61B<Item> {...}
 ```
 
 AList的这种声明就意味着它在宣称List61B中有的函数，AList这边也一样全都有。
+
+#### 方法重写Overriding
+Override其实就是子类将父类中的方法细化，重写，毕竟父类List61B中啥都没写嘛，只是声明了有啥，所以子类AList在继承父类时需要Override父类中提到的方法。
+
+Override是针对父类子类中的同名方法的关系的解释，我们一般说AList overrides addFirst()，AList 重写了addFirst方法。
+
+Overload只是针对某一方法的行为的解释，我们一般说某个方法过载了，并不会提到父子类关系。
+
+如果在子类中某一方法是override，则在这个方法的前一行声明@override，以便编译器及时查看是否有错。
