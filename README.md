@@ -640,3 +640,25 @@ default public void print() {
 在List61B中声明之后，就不需要在AList中写print()方法了。
 
 而如果我们在AList或者SList中写了print()方法，那么SList中的print()将会override List61B中的print(), 这是Java的Dynamic method selection, 在子类中声明的方法为dynamic方法。
+
+但Dynamic method selection只应用在override，在overload方法中并不起作用，举个栗子：
+```
+/*peek方法是过载的，一个形参类型为SLList，另一个形参类型为List61B*/
+public static void peek(List61B<String> list) {
+    System.out.println(list.getLast());
+}
+public static void peek(SLList<String> list) {
+    System.out.println(list.getFirst());
+}
+```
+在调用的过程中
+```
+SLList<String> SP = new SLList<String>();
+List61B<String> LP = SP;
+SP.addLast("elk");
+SP.addLast("are");
+SP.addLast("cool");
+peek(SP);
+peek(LP);
+```
+虽然SP和LP指向的是同一个地址，但peek(SP)与peek(LP)的结果是不同的，因为SP和LP的类型不一样。
