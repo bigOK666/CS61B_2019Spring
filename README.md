@@ -638,3 +638,5 @@ default public void print() {
 }
 ```
 在List61B中声明之后，就不需要在AList中写print()方法了。
+
+而如果我们在AList或者SList中写了print()方法，那么SList中的print()将会override List61B中的print(), 这是Java的Dynamic method selection, 在子类中声明的方法为dynamic方法。
