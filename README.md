@@ -610,7 +610,7 @@ public interface List61B<Item> {
     ...
 }
 ```
-在声明List61B的下位词AList时使用implements:
+在声明List61B的下位词AList时使用implements，这个过程也叫做interface inheritance:
 ```
 public class AList<Item> implements List61B<Item> {...}
 ```
@@ -625,3 +625,16 @@ Override是针对父类子类中的同名方法的关系的解释，我们一般
 Overload只是针对某一方法的行为的解释，我们一般说某个方法过载了，并不会提到父子类关系。
 
 如果在子类中某一方法是override，则在这个方法的前一行声明@override，以便编译器及时查看是否有错。
+
+#### Implementation inheritance 构建继承/方法继承
+
+与接口继承不同，implementation inheritance方法继承可以将具体的执行代码写在List61B中，当然，要使用一个新的关键词`default`:
+```
+default public void print() {
+    for (int i = 0; i < size(); i += 1) {
+        System.out.print(get(i) + " ");
+    }
+    System.out.println();
+}
+```
+在List61B中声明之后，就不需要在AList中写print()方法了。
