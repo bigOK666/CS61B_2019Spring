@@ -662,3 +662,10 @@ peek(SP);
 peek(LP);
 ```
 虽然SP和LP指向的是同一个地址，但peek(SP)与peek(LP)的结果是不同的，因为SP和LP的类型不一样。
+
+### 4.2 Extends 扩展， casting转型，Higher order functions高阶函数
+
+Extends用于继承已有具体方法的类，就是创建子类，并继承父类所有的方法， 比如我们要建一个RotatingSLList，这个类继承所有SLList的方法，而且还有自己独有的一个方法`rotateRight`， 那么我们需要这样声明它:
+```
+public class RotatingSLList<Item> extends SLList<Item>
+```
