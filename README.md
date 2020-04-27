@@ -686,3 +686,11 @@ public void rotateRight() {
         return x;
     }
 ```
+
+Java的类在调用的时候必须以构造器开始，所以如果没有在类中定义构造器的话，编译器就会报错，那么子类如何简便的定义构造器呢？用`super();`
+```
+public VengefulSLList(Item x) {
+    super(x);
+    deletedItems = new SLList<Item>();
+}
+```
