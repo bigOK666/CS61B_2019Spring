@@ -668,4 +668,12 @@ peek(LP);
 Extends用于继承已有具体方法的类，就是创建子类，并继承父类所有的方法， 比如我们要建一个RotatingSLList，这个类继承所有SLList的方法，而且还有自己独有的一个方法`rotateRight`， 那么我们需要这样声明它:
 ```
 public class RotatingSLList<Item> extends SLList<Item>
+//implementation
+public void rotateRight() {
+    Item x = removeLast();
+    addFirst(x);
+}
 ```
+
+子类会继承父类的所有成员，包括实例变量，静态变量，方法，嵌入方法， 但构造器不会被继承，private成员会被继承但无法访问，毕竟是私有嘛，私房钱会被继承并使用吗！
+
