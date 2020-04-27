@@ -677,3 +677,12 @@ public void rotateRight() {
 
 子类会继承父类的所有成员，包括实例变量，静态变量，方法，嵌入方法， 但构造器不会被继承，private成员会被继承但无法访问，毕竟是私有嘛，私房钱会被继承并使用吗！
 
+如果需要override父类中的某些方法，但改动是基于父类的方法，可以用关键字`super.`调用父类的方法:
+```
+@Override
+    public Item removeLast() {
+        Item x = super.removeLast();//调用父类方法
+        deletedItems.addLast(x);
+        return x;
+    }
+```
