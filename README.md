@@ -694,3 +694,28 @@ public VengefulSLList(Item x) {
     deletedItems = new SLList<Item>();
 }
 ```
+
+#### 继承会破坏封装
+在Superclass中我们定义
+```
+public void bark() {
+    barkMany(1);
+}
+
+public void barkMany(int N) {
+    for (int i = 0; i < N; i += 1) {
+        System.out.println("bark");
+    }
+}
+```
+在Subclass中我们定义
+```
+@Override
+public void barkMany(int N) {
+    System.out.println("As a dog, I say: ");
+    for (int i = 0; i < N; i += 1) {
+        bark();
+    }
+}
+```
+创建了子类的实例后我们调用barkMany函数时，根据动态方法的原则，bark()会到父类中去找，然后父类的这个bark()又调用barkMany(),由于动态方法只会选择同名中的一个，即子类中的那个，那么bark()又会被调用。。。。这时出现了无限循环！
