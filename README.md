@@ -719,3 +719,18 @@ public void barkMany(int N) {
 }
 ```
 创建了子类的实例后我们调用barkMany函数时，根据动态方法的原则，bark()会到父类中去找，然后父类的这个bark()又调用barkMany(),由于动态方法只会选择同名中的一个，即子类中的那个，那么bark()又会被调用。。。。这时出现了无限循环！
+
+#### 类型检查与转型(Casting)
+
+Java的程序运行分为两步-Compile time和Run time。 编译时间那部分负责静态类型，Run time负责动态类型。 举个例子:
+```
+VengefulSLList<Integer> vsl = new VengefulSLList<Integer>(9);// vsl 静态类型为VengefulSLList, 动态类型也是
+SLList<Integer> sl = vsl; //sl 静态类型为SLList, 动态类型为VengefulSLList
+
+sl.addLast(50);
+sl.removeLast();
+
+sl.printLostItems();
+
+VengefulSLList<Integer> vsl2 = sl;
+```
