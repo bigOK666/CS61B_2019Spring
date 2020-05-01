@@ -727,10 +727,17 @@ Java的程序运行分为两步-Compile time和Run time。 编译时间那部分
 VengefulSLList<Integer> vsl = new VengefulSLList<Integer>(9);// vsl 静态类型为VengefulSLList, 动态类型也是
 SLList<Integer> sl = vsl; //sl 静态类型为SLList, 动态类型为VengefulSLList
 
-sl.addLast(50);
-sl.removeLast();
+sl.addLast(50);//VengefulSLList中没有定义或Override addLast()方法，所以从父类SLList中寻找
+sl.removeLast();//removeLast()被VengefulSLList override了，所以用动态方法，即VengefulSLList中定义的removeLast()
 
-sl.printLostItems();
+sl.printLostItems();//这个会造成编译器报错，因为sl的静态类型为SLList, 而SLList没有printLostItems成员，尽管sl在run time(动态类型)中的类型是VengefulSLList。
 
-VengefulSLList<Integer> vsl2 = sl;
+VengefulSLList<Integer> vsl2 = sl;//这个也会造成编译器报错，因为sl is not a vsl2，类型不兼容。
+```
+
+#### 高阶函数 High order function
+
+高阶函数的意思就是函数本身也可以作为其他函数的形参/输入。 具体的操作方法就是通过interface完成的：
+```
+
 ```
