@@ -739,5 +739,27 @@ VengefulSLList<Integer> vsl2 = sl;//这个也会造成编译器报错，因为sl
 
 高阶函数的意思就是函数本身也可以作为其他函数的形参/输入。 具体的操作方法就是通过interface完成的：
 ```
+public interface IntUnaryFunction {
+    int apply(int x);
+}
+```
+```
+public class TenX implements IntUnaryFunction {
+    /* Returns ten times the argument. */
+    public int apply(int x) {
+        return 10 * x;
+    }
+}
+```
 
+```
+public class Demo{
+    public static int do_twice(IntUnaryFunction f, int x) {
+    return f.apply(f.apply(x));
+}
+
+main{
+    System.out.println(do_twice(new TenX(), 2));
+}
+}
 ```
