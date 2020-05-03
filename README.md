@@ -778,3 +778,11 @@ Animal b = new Cat();
 这一章介绍了一些Java的语法，跟数据结构没啥关系，两点注意事项:
  - 可以用`final`关键词来声明一个变量无法被改变`public final int Month;`
  - 可以对类型应用`extend`关键字来声明对应的变量可以应用父类的方法`public static <K extends Comparable<K>, V> K maxKey(Map61B<K, V> map) {...}`，这个太牛逼了。
+
+## Chapter 6 Exceptions, Iterators, Iterables, Object Methods
+
+### 6.1 列表，集合
+集合就是一个组合里面所有的元素都是唯一的，不重复的。 这一节没啥特别的，看下一节。
+
+### 6.2 抛出例外【啥破翻译
+使用内部已经定义好的方法来报错`throw new IllegalArgumentException("can't add null");`
