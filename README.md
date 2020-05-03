@@ -774,3 +774,7 @@ Animal b = new Cat();
 
 嘛，光讲道理是没用的，还是要结合实际用途干起来才行！
 
+## Chapter 5 泛型与自动转型
+这一章介绍了一些Java的语法，跟数据结构没啥关系，两点注意事项:
+ - 可以用`final`关键词来声明一个变量无法被改变`public final int Month;`
+ - 可以对类型应用`extend`关键字来声明对应的变量可以应用父类的方法`public static <K extends Comparable<K>, V> K maxKey(Map61B<K, V> map) {...}`，这个太牛逼了。
