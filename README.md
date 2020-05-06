@@ -786,3 +786,10 @@ Animal b = new Cat();
 
 ### 6.2 抛出例外【啥破翻译
 使用内部已经定义好的方法来报错`throw new IllegalArgumentException("can't add null");`
+
+### 6.3 迭代 iteration
+这里讲的迭代就是继承一个迭代器iterator从而获得迭代器的方法。
+
+### 6.4 常用对象方法 toString 和 equals
+
+Nothing special. Let's do the project 1B!
