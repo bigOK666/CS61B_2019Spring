@@ -41,10 +41,7 @@ public class LinkedListDeque<T> implements Deque<T> {
         sentinel.pre = node;
         size += 1;
     }
-    /*check if list is empty*/
-    public boolean isEmpty() {
-        return size == 0;
-    }
+
     /*Return the number of elements in the list*/
     public int size() {
         return size;

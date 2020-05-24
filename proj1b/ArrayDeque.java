@@ -53,11 +53,6 @@ public class ArrayDeque<T> implements Deque<T>{
         size++;
     }
 
-    /*check if array is empty*/
-    public boolean isEmpty() {
-        return size == 0;
-    }
-
     /*show the size of the arraylist*/
     public int size() {
         return size;
