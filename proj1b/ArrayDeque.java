@@ -22,6 +22,11 @@ public class ArrayDeque<T> implements Deque<T>{
     /*resize the array*/
     private void resize(int capacity) {
         T[] a = (T []) new Object[capacity];
+        if (nextFirst > nextLast) {
+
+        }else{
+
+        }
         System.arraycopy(items, 0, a, 0, nextLast);
         if (nextFirst + 1 > nextLast - 1) {
             System.arraycopy(items, (nextFirst + 1) % items.length, a,
@@ -51,7 +56,7 @@ public class ArrayDeque<T> implements Deque<T>{
             resize(size * 2);
         }
         items[nextFirst] = item;
-        nextFirst = (nextFirst - 1 + items.length) % items.length;
+        nextFirst = (nextFirst - 1 + items.length) % items.length;//to make sure the nextFirst is not negative
         size++;
     }
 
@@ -90,7 +95,7 @@ public class ArrayDeque<T> implements Deque<T>{
             nextFirst = (nextFirst + 1) % items.length;
             size--;
             if (items.length >= 16 && (double) size / items.length < 0.25) {
-                resize(size * 2);
+                resize(size / 2);
             }
             return x;
         }
@@ -107,7 +112,7 @@ public class ArrayDeque<T> implements Deque<T>{
             nextLast--;
             size--;
             if (items.length >= 16 && (double) size / items.length < 0.25) {
-                resize(size * 2);
+                resize(size / 2);
             }
             return x;
         }
