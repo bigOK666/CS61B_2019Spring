@@ -22,17 +22,18 @@ public class ArrayDeque<T> implements Deque<T>{
     /*resize the array*/
     private void resize(int capacity) {
         T[] a = (T []) new Object[capacity];
-        if (nextFirst > nextLast) {
-
+        if (size == items.length) {
+            //when the array is full, we will extend it
+            System.arraycopy(items, 0, a, 0, nextLast);
+            if (nextFirst + 1 > nextLast - 1) {
+                System.arraycopy(items, (nextFirst + 1) % items.length, a,
+                        (nextFirst + 1 + capacity - items.length) % capacity, size - nextLast);
+                nextFirst = nextFirst + capacity - items.length;
+            }
         }else{
 
         }
-        System.arraycopy(items, 0, a, 0, nextLast);
-        if (nextFirst + 1 > nextLast - 1) {
-            System.arraycopy(items, (nextFirst + 1) % items.length, a,
-                    (nextFirst + 1 + capacity - items.length) % capacity, size - nextLast);
-            nextFirst = nextFirst + capacity - items.length;
-        }
+
 
         items = a;
 
@@ -45,7 +46,7 @@ public class ArrayDeque<T> implements Deque<T>{
             resize(size * 2);
         }
         items[nextLast] = item;
-        nextLast++;
+        nextLast = (nextLast + 1)% items.length;
         size++;
     }
 
@@ -109,7 +110,7 @@ public class ArrayDeque<T> implements Deque<T>{
         } else {
             T x = items[nextLast - 1];
             items[nextLast - 1] = null;
-            nextLast--;
+            nextLast = (nextLast - 1) % items.length;
             size--;
             if (items.length >= 16 && (double) size / items.length < 0.25) {
                 resize(size / 2);
