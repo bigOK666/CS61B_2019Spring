@@ -11,6 +11,20 @@ public class Palindrome extends ArrayDeque<Character>{
     }
 
     public boolean isPalindrome(String word) {
-        return false;
+        Deque d = wordToDeque(word);
+        if (d.size() <= 1) {
+            return true;
+        } else {
+            int index_back = d.size() - 1;
+            for (int i = 0; i < d.size(); i++) {
+                if (d.get(i) == d.get(index_back)) {
+                    index_back--;
+                } else {
+                    return false;
+                }
+            }
+            return true;
+        }
+
     }
 }
