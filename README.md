@@ -793,3 +793,30 @@ Animal b = new Cat();
 ### 6.4 常用对象方法 toString 和 equals
 
 Nothing special. Let's do the project 1B!
+
+## Chapter 7 函数包和控制权限 Package and Access Control
+
+包的使用：`import` + 包中的类的名字， 然后就可以用包中的类了， 例如：
+```
+import ug.joshh.animal.Dog;
+...
+Dog d = new Dog(...);
+```
+创建包：`package` + 包的名字，包的名字对应存储的文件夹路径，例如：
+```
+package ug.joshh.animal;
+
+public class Dog {
+    private String name;
+    private String breed;
+    …
+}//Dog 类储存在路径ug/joshh/animal/下
+```
+
+如果不声明某些类是在哪个包中，这个类就会被默认为在Default包下。 *注意*：除了小的程序，一定要声明这个类在哪个包下，因为Default包无法被`import`或其他方法引用（貌似反射可以？）
+
+在InteliJ中，File->new Package 可以用来创建程序包。
+
+JAR 文件可以用来直接导入多个类、 包。 JAR 文件只是多个类的压缩文件，将JAR文件后缀改成zip之后就可以看到里面的内容。
+
+导入JAR文件InteliJ：File → Project Structure → Artifacts → JAR添加完之后记得Build → Build Artifacts
