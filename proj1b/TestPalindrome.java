@@ -1,4 +1,6 @@
 import org.junit.Test;
+
+import static edu.princeton.cs.introcs.StdOut.print;
 import static org.junit.Assert.*;
 
 public class TestPalindrome {
@@ -22,5 +24,8 @@ public class TestPalindrome {
         assertTrue(palindrome.isPalindrome("A"));
         assertFalse(palindrome.isPalindrome("Aa"));
         assertTrue(palindrome.isPalindrome("racecar"));
+        OffByOne obo = new OffByOne();
+        assertTrue(palindrome.isPalindrome("flake", obo));
+        assertFalse(palindrome.isPalindrome("glake", obo));
     }
 }

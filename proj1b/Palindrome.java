@@ -16,8 +16,8 @@ public class Palindrome extends ArrayDeque<Character>{
             return true;
         } else {
             int index_back = d.size() - 1;
-            for (int i = 0; i < d.size(); i++) {
-                if (d.get(i) == d.get(index_back)) {
+            for (int i = 0; i < d.size()/2; i++) {
+                if (d.get(i).equals(d.get(index_back))) {
                     index_back--;
                 } else {
                     return false;
@@ -25,6 +25,22 @@ public class Palindrome extends ArrayDeque<Character>{
             }
             return true;
         }
+    }
 
+    public boolean isPalindrome(String word, CharacterComparator cc) {
+        Deque d = wordToDeque(word);
+        if (d.size() <= 1) {
+            return true;
+        } else {
+            int index_back = d.size() - 1;
+            for (int i = 0; i < d.size()/2; i++) {
+                if (cc.equalChars((char) d.get(i), (char) d.get(index_back))) {
+                    index_back--;
+                } else {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
