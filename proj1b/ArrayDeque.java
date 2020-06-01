@@ -24,7 +24,8 @@ public class ArrayDeque<T> implements Deque<T>{
         //copy the old array to the new one
         T[] a = (T []) new Object[capacity];
         for (int newIndex = 0; newIndex < size; newIndex++) {
-            a[newIndex] = items[(newIndex + nextFirst + 1) % items.length];
+            a[newIndex] = get(newIndex);
+            //a[newIndex] = items[(newIndex + nextFirst + 1) % items.length];
         }
 
         nextLast = size;
