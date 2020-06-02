@@ -796,6 +796,8 @@ Nothing special. Let's do the project 1B!
 
 ## Chapter 7 函数包和控制权限 Package and Access Control
 
+### Package
+
 包的使用：`import` + 包中的类的名字， 然后就可以用包中的类了， 例如：
 ```
 import ug.joshh.animal.Dog;
@@ -820,3 +822,14 @@ public class Dog {
 JAR 文件可以用来直接导入多个类、 包。 JAR 文件只是多个类的压缩文件，将JAR文件后缀改成zip之后就可以看到里面的内容。
 
 导入JAR文件InteliJ：File → Project Structure → Artifacts → JAR添加完之后记得Build → Build Artifacts
+
+### Access Control
+
+访问权限，主要是看某一声明的变量到底能不能被其他函数/包/类访问。
+目前的关键字有public, private, protected以及无关键字声明(代表着可以被同类和同包访问)：
+|Modifier|Class|Package|Subclass|World|
+|--------|--------|--------|--------|--------|
+|public|Y|Y|Y|Y|
+|protected|Y|Y|Y|N|
+||Y|Y|N|N|
+|private|Y|N|N|N|
