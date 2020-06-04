@@ -838,3 +838,7 @@ JAR 文件可以用来直接导入多个类、 包。 JAR 文件只是多个类�
 
 ### 8.1 封装， API 和 ADT
 API(Application Programming Interface)是通过接口提供一系列功能。 ADT(Abstract Data Structures)是通过行为(behaviors)来定义自己的上层类，具体实现方法(implementations)并不是定义ADT的要点， 比如Deque是一种数据结构，它的行为包括添加，删除等等，但具体的实现方法有多种，可以是Array实现，也可以是链表实现。
+
+### 8.2 Asymptotics 效率分析
+
+从这部分开始是课程的下半部分，将会集中在分析程序的时间复杂度、空间复杂度。
