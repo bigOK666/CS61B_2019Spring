@@ -848,3 +848,7 @@ API(Application Programming Interface)是通过接口提供一系列功能。 AD
 ### 8.3 Asymptotics 效率分析II
 
 这部分进一步讲了如果要算一个算法的复杂度，需要仔细算下来，不能只靠看有几个for循环。
+
+### 8.4 Omega, Amortized Analysis 平摊分析
+
+平摊分析是从全貌分析算法复杂度的一种方法，简单来讲，就是把所有cost全考虑进去然后取平均。
