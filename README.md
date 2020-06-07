@@ -858,3 +858,36 @@ API(Application Programming Interface)是通过接口提供一系列功能。 AD
 
 ### 9.1 简介
 Disjoint Sets是指两个集合交集为0，也就是这两个集合没有相同的成员。 这个类包含两种方法：connect()和isConnect(). connect()将两个成员连接起来，isConnect()用来判断两个成员是否相连接。
+
+### 9.2 Quick Find
+
+快速查找的算法是基于List数据结构，列表的index代表了对应的成员，index所存储的值代表了这个成员所属的集合。
+```
+public class QuickFindDS implements DisjointSets {
+
+    private int[] id;
+
+    /* Θ(N) */
+    public QuickFindDS(int N){
+        id = new int[N];
+        for (int i = 0; i < N; i++){
+            id[i] = i;
+        }
+    }
+
+    /* need to iterate through the array => Θ(N) */
+    public void connect(int p, int q){
+        int pid = id[p];
+        int qid = id[q];
+        for (int i = 0; i < id.length; i++){
+            if (id[i] == pid){
+                id[i] = qid;
+            }
+        }
+    }
+
+    /* Θ(1) */
+    public boolean isConnected(int p, int q){
+        return (id[p] == id[q]);
+    }
+```
