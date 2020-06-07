@@ -852,3 +852,9 @@ API(Application Programming Interface)是通过接口提供一系列功能。 AD
 ### 8.4 Omega, Amortized Analysis 平摊分析
 
 平摊分析是从全貌分析算法复杂度的一种方法，简单来讲，就是把所有cost全考虑进去然后取平均。
+
+## 9 集合 Disjoint Sets
+第八章讲了分析算法的复杂度基本需要哪些工具，概念。 这章开始讲基本的算法。
+
+### 9.1 简介
+Disjoint Sets是指两个集合交集为0，也就是这两个集合没有相同的成员。 这个类包含两种方法：connect()和isConnect(). connect()将两个成员连接起来，isConnect()用来判断两个成员是否相连接。
