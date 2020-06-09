@@ -891,3 +891,39 @@ public class QuickFindDS implements DisjointSets {
         return (id[p] == id[q]);
     }
 ```
+
+### 9.3 Quick Union
+quick union的算法就是将每个index的父节点储存在index所指向的值中，也就是形成一个树形结构:
+```
+public class QuickUnionDS implements DisjointSets {
+    private int[] parent;
+
+    public QuickUnionDS(int num) {
+        parent = new int[num];
+        for (int i = 0; i < num; i++) {
+            parent[i] = i;
+        }
+    }
+
+    private int find(int p) {
+        while (parent[p] >= 0) {
+            p = parent[p];
+        }
+        return p;
+    }
+
+    @Override
+    public void connect(int p, int q) {
+        int i = find(p);
+        int j= find(q);
+        parent[i] = j;
+    }
+
+    @Override
+    public boolean isConnected(int p, int q) {
+        return find(p) == find(q);
+    }
+}
+```
+
+在连接的时候直接将小的集合连接到大的集合的根节点上。
