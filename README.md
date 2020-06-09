@@ -925,5 +925,6 @@ public class QuickUnionDS implements DisjointSets {
     }
 }
 ```
+### 9.4 Weighted quick union
 
-在连接的时候直接将小的集合的根连接到大的集合的根节点上。
+在连接的时候直接将小的集合的根连接到大的集合的根节点上。 这样的话复杂度就可以降低到logN。
