@@ -926,4 +926,4 @@ public class QuickUnionDS implements DisjointSets {
 }
 ```
 
-在连接的时候直接将小的集合连接到大的集合的根节点上。
+在连接的时候直接将小的集合的根连接到大的集合的根节点上。
