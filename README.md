@@ -932,3 +932,10 @@ public class QuickUnionDS implements DisjointSets {
 ### 9.5 WQU with Path Compression
 
 加上path compression后，就是在find()运行时，将要查找的元素的父节点设置为父节点的父节点直到root。
+
+## 10 ADT abstract data type
+
+### 10.1 简介
+数据结构类型由其行为决定，而不是其实现的方法。
+
+常用的数据结构类型：栈，列表，集合（无重复元素），图（键/值一一对应）
